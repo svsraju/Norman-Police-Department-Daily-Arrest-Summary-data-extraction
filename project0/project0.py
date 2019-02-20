@@ -158,10 +158,11 @@ def createdb():
         officer TEXT)"""
     
     cur.execute(arrests_data)
-     
-def populatedb(incidents):
+
+    return 'normanpd.db' 
+def populatedb(db,incidents):
     
-    conn = sqlite3.connect(r"normanpd.db")
+    conn = sqlite3.connect(db)
     cur = conn.cursor()
     
     for i in range(len(incidents[1])):
@@ -174,8 +175,8 @@ def populatedb(incidents):
         
 
 
-def status():
-    conn = sqlite3.connect(r"normanpd.db")
+def status(db):
+    conn = sqlite3.connect(db)
     cur = conn.cursor()
     cur.execute("SELECT * FROM arrests ORDER BY RANDOM() LIMIT 1")
     
@@ -183,7 +184,7 @@ def status():
         
     for i in results:
         print(i)
-   
+    return results
 
         
     

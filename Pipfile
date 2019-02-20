@@ -6,11 +6,7 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-requests = "*"
-urllib = "*"
-pypdf2 = "*"
-bs4 = "*"
-urllib3 = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.6"

@@ -12,13 +12,13 @@ def main(url):
     incidents = project0.extractincidents(a)
 	
     # Create Dataase
-    project0.createdb()
+    db =  project0.createdb()
 	
     # Insert Data
-    project0.populatedb(incidents)
+    project0.populatedb(db,incidents)
 	
     # Print Status
-    project0.status()
+    project0.status(db)
 
 
 if __name__ == '__main__':
