@@ -1,4 +1,6 @@
-#Norman Police Department,Daily Arrest Summary extraction 
+Norman Police Department,Daily Arrest Summary extraction 
+===
+
 The Norman, Oklahoma police department regularly reports of incidents arrests and other activity. This data is hosted on their website. This data is distributed to the public in the form of PDF files.
 
 you can download these PDF files  here http://normanpd.normanok.gov/content/daily-activity
@@ -68,7 +70,7 @@ Description of Functions Used
 ---
 I have two files to run the program, in `project0/project0.py'` I have written all function definitions and in `project0/main.py`, I have called these functions.
 
-######Functions
+Functions
 
 1 . **fetchincidents(url)**
 
@@ -115,6 +117,12 @@ The function populatedb(db, incidents) function takes the rows created in the ex
 The status() function prints to standard out, a random row from the database
 
 ----
+
+Directions on how to install and use the code
+--
+
+
+----------------------------------
 How to run it
 --
 
