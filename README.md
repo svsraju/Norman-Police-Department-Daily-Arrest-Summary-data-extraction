@@ -20,7 +20,6 @@ All known Bugs and fixes can be sent to subbaraju.v@ou.edu
 ------
 File List
 ----
-
 ```
 ├── COLLABORATORS
 ├── LICENSE
@@ -36,11 +35,14 @@ File List
 ├── setup.cfg
 ├── setup.py
 └── tests
+    ├── test_database.py
     ├── test_download.py
-    └── test_fields.py
+    ├── test_fields.py
+    └── test_status.py
 
 ```
-----
+
+-------
 Platform used
 ---
 
