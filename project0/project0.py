@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Feb 14 11:21:07 2019
-
-@author: varma
-"""
+#project0, function definitions
 
 import argparse
 import requests
@@ -19,54 +14,19 @@ import sqlite3
 from sqlite3 import Error
 
 
+#we are fetching incidents from the url provided by the user
 
 def fetchincidents(url):
     
-    
-    
-    data = urllib.request.urlopen(url).read()
-    
+    data = urllib.request.urlopen(url).read()# using urllib library to read the data from the url
     
     return data
-    """response = requests.get(url)
-    
-    soup = BeautifulSoup(response.content, "html.parser")
-    
-    tag = soup.find_all('a')
-    print(type(tag))
-     
-    list1=[]
-    for link in tag:
-        list1.append(link.get('href'))
-    #return list1
-
-    import re
-    r = re.compile(".*Arrest")
-    newlist = list(filter(r.match, list1))
-    st = "http://normanpd.normanok.gov" 
-    
-    finallist= []
-    for i in newlist:
-        i = st + i
-        finallist.append(i)
-    
-    return finallist"""    
-        
-
-    
-
 
 def extractincidents(all_incidents):
     
-    
-    #url = "http://normanpd.normanok.gov/filebrowser_download/657/2019-02-12%20Daily%20Arrest%20Summary.pdf"
-   
-
-    
-    #data = urllib.request.urlopen(url).read()
-    
     data = all_incidents
     
+    #creating the tempfile
     fp = tempfile.TemporaryFile()
     # Write the pdf data to a temp file
     fp.write(data)
@@ -78,29 +38,24 @@ def extractincidents(all_incidents):
     # Get the first page
     page1 = pdfReader.getPage(0).extractText()
     
-    
-    #page1.strip()
-    
+    #insering ';' at the end of first row to make sure all the rows have ';' at the end 
     page_changes =  re.sub(r'(.*Officer)(\W)',r'\1;\2',page1)
     
-    page_changes
-    
+    #clening the data
     page_changes2 = re.sub(r"\s\n"," ",page_changes)
     
     page_changes2 = re.sub(r"-\n"," ", page_changes2)
-    
     
     
     page_changes2 =  re.sub(r'(.*REVOKE)(\W)',r'\1-\2',page_changes2)
     
     page_changes2 = re.sub(r"-\n"," ", page_changes2)
     
+    #spliting the data
     page_changes2 = page_changes2.split(';')
     
     for i in range(len(page_changes2)):
         page_changes2[i] = page_changes2[i].split('\n') 
-    
-    #str.split(page1,"\n")
     
     
     page_changes2.pop(len(page_changes2)-1)
@@ -108,13 +63,10 @@ def extractincidents(all_incidents):
     for i in range(1,len(page_changes2)):
         page_changes2[i].pop(0)
     
-     #for i in range(1,len(page_changes2)):
-      #  page_changes2
     
     page_changes2.pop(0)
   
-    
-    
+    # combining the columns , so as to push 9 values into the database
     for i in range(0,len(page_changes2)):
         
         if len(page_changes2[i]) == 12:
@@ -138,7 +90,7 @@ def extractincidents(all_incidents):
         
     return page_changes2
 
- 
+#creating the database to push the data 
 def createdb():
     
     conn = sqlite3.connect(r"normanpd.db")
@@ -160,6 +112,8 @@ def createdb():
     cur.execute(arrests_data)
 
     return 'normanpd.db' 
+
+# Pushing the data into the database  
 def populatedb(db,incidents):
     
     conn = sqlite3.connect(db)
@@ -174,7 +128,7 @@ def populatedb(db,incidents):
     conn.close() 
         
 
-
+#quering through the database and returning the function at random
 def status(db):
     conn = sqlite3.connect(db)
     cur = conn.cursor()
@@ -182,9 +136,16 @@ def status(db):
     
     results = cur.fetchall()
         
-    for i in results:
-        print(i)
-    return results
+    #for i in results:
+     #   print(i)
+    #return results
+
+    new_list = []
+    for columns in results:
+        new_list.append('þ'.join(columns))
+
+    print(new_list[0])
+    return new_list[0]
 
         
     
