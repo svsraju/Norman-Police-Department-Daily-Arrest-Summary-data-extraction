@@ -136,10 +136,6 @@ def status(db):
     
     results = cur.fetchall()
         
-    #for i in results:
-     #   print(i)
-    #return results
-
     new_list = []
     for columns in results:
         new_list.append('þ'.join(columns))

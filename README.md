@@ -16,6 +16,7 @@ Author
 **Venkata Subbaraju Sagi**
 
 All known Bugs and fixes can be sent to subbaraju.v@ou.edu
+Packages
 
 ------
 File List
@@ -79,9 +80,9 @@ Functions
 The function fetchincidents() takes url as input parameters, it uses the python urllib.request library to grab one of the pdfs for the norman police report webpage.
 
 
- 2 .  **extractincidents()**
+ 2 .  **extractincidents(url)**
 
-The function extractincidents() takes no parameters and it reads data from the pdf files and extracts the incidents. The each incident includes a **date/time, case number, arrest location, offense, arrestee address, status, and officer**. A city, state, and zip code will typical be available if the arrested person(s) is not homeless or transient. This data is hidden inside of a PDF file.
+The function extractincidents() takes  parameters retured froom fetchIncidents  and it reads data from the pdf files and extracts the incidents. The each incident includes a **date/time, case number, arrest location, offense, arrestee address, status, and officer**. A city, state, and zip code will typical be available if the arrested person(s) is not homeless or transient. This data is hidden inside of a PDF file.
 
 To extract the data from the pdf files, use the PyPdf2.PdfFileReader class. It will allow you to extract pages and pdf file and search for the rows. Extract each row and add it to a list.
 
@@ -114,25 +115,23 @@ Note, all the columns correspond directly to the columns in the arrest pdfs. The
 The function populatedb(db, incidents) function takes the rows created in the extractincidents() function and adds it to the normanpd.db database.
 
 ---
-5 . **status()**
+5 . **status(db)**
 
-The status() function prints to standard out, a random row from the database
-
-----
-
-Directions on how to install and use the code
---
-
-
-----------------------------------
-How to run it
---
-
+The status(db) function prints to standard out, a random row from the database
 
 ----
+To run this u need to pass the command line as follows:
 
+python main.py --arrests "url link"
 
+`python main.py --arrests "http://normanpd.normanok.gov/filebrowser_download/657/2019-02-14%20Daily%20Arrest%20Summary.pdf"
 
+expected output
+
+1/22/2019 20:13þ2019-00005814þ811 E MAIN STþWARRANT-COUNTYþJIMMY GARRETT DYEþ6/12/2000þ811 E MAIN ST Norman  OK  73071 þFDBDC (Jail) þ1816 - Ross;
+
+check the thorn character in between each fields
+---
 
 List of external links that I used for help
 --
@@ -143,7 +142,9 @@ https://docs.python.org/3/howto/regex.html,  this explains in detail of regular 
 
 http://www.sqlitetutorial.net/sqlite-python/creating-database/ , I never used SQLlite before this link gave me moreinformation on creating the data base and the way to push the values to the database.
 
+https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf, this helped in detailing my README.md structure.
 
+https://www.geeksforgeeks.org/list-methods-in-python-set-2-del-remove-sort-insert-pop-extend/, helped with commands to remove specific values from my list.
 
 
 
