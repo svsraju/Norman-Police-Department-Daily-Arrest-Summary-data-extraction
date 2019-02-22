@@ -157,18 +157,17 @@ https://www.geeksforgeeks.org/list-methods-in-python-set-2-del-remove-sort-inser
 **Assumptions/Bugs**
 --
 
-"""
+```
 I have assumed that the page have only 12 columns, out of which the data is missing only from columns 7,8,9. If there is a missing value in different column or number of columns are more than 12 the code might not give desired results.
 
 To clean the data and to get desired formatting, you will see me using hard coding in some cases, like combing multi lined string values and removing space in between them, and adding some special characters and split the text using that character. So the code can handle only those cases.
 
 The code requires manual input from the user, failing to give that might not give you any output, so I assume you know that condition.
-"""
+```
 ------
 
-Thankyou for your time, Happy Coding!!
+***   Thankyou for checking ,Hope this help you in your work!***
 
---
 
 
 
