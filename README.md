@@ -30,10 +30,8 @@ File List
 ├── Pipfile.lock
 ├── README.md
 ├── docs
-├── normanpd.db
 ├── project0
 │   ├── main.py
-│   ├── normanpd.db
 │   └── project0.py
 ├── setup.cfg
 ├── setup.py
@@ -139,6 +137,7 @@ expected output
 1/22/2019 20:13þ2019-00005814þ811 E MAIN STþWARRANT-COUNTYþJIMMY GARRETT DYEþ6/12/2000þ811 E MAIN ST Norman  OK  73071 þFDBDC (Jail) þ1816 - Ross;
 
 check the thorn character in between each fields
+
 ---
 
 List of external links that I used for help
@@ -153,19 +152,18 @@ http://www.sqlitetutorial.net/sqlite-python/creating-database/ , I never used SQ
 https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf, this helped in detailing my README.md structure.
 
 https://www.geeksforgeeks.org/list-methods-in-python-set-2-del-remove-sort-insert-pop-extend/, helped with commands to remove specific values from my list.
---
 
+-------
 **Assumptions/Bugs**
 --
 
-'''
-
+"""
 I have assumed that the page have only 12 columns, out of which the data is missing only from columns 7,8,9. If there is a missing value in different column or number of columns are more than 12 the code might not give desired results.
 
 To clean the data and to get desired formatting, you will see me using hard coding in some cases, like combing multi lined string values and removing space in between them, and adding some special characters and split the text using that character. So the code can handle only those cases.
 
 The code requires manual input from the user, failing to give that might not give you any output, so I assume you know that condition.
-
+"""
 ------
 
 Thankyou for your time, Happy Coding!!
