@@ -95,6 +95,8 @@ def createdb():
     
     conn = sqlite3.connect(r"normanpd.db")
     cur = conn.cursor()
+    
+    cur.execute("""DROP TABLE IF EXISTS arrests""")
 
     arrests_data = """    
     CREATE TABLE IF NOT EXISTS arrests (
