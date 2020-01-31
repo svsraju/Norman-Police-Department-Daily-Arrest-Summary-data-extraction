@@ -1,16 +1,14 @@
 Norman Police Department,Daily Arrest Summary extraction 
 ===
 
+![alt_text](https://upload.wikimedia.org/wikipedia/en/f/f3/Norman%2C_OK_Police.jpg)
+
 The Norman, Oklahoma police department regularly reports of incidents arrests and other activity. This data is hosted on their website. This data is distributed to the public in the form of PDF files.
 
 you can download these PDF files  here http://normanpd.normanok.gov/content/daily-activity
 
 In this project you will see me  using the knowledge of Python and the Linux command line tools to extract information from a scraped file, such as one of the PDF files(we will be concentratig on Daily Arrests) , wrangle through the file ,download the data,
 extract the fields from first page, create a SQLite database to store the data. and insert the data into the database finally returning one Random arrest.
-
-----
-Project Source can viewed from  https://oudalab.github.io/textanalytics/projects/project0
----
 
 -------------
 Author 
